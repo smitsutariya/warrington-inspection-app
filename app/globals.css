@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Warrington Brand Fonts ────────────────────────────────────────────── */
+@font-face {
+  font-family: 'Lora';
+  src: url('/brand/Lora-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/brand/Satoshi-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ── Warrington Brand Colour Tokens ────────────────────────────────────── */
+:root {
+  --wr-cascades:  #123C3F;
+  --wr-pacific:   #1B5B5F;
+  --wr-calypso:   #00A2AF;
+  --wr-seafoam:   #00AAB8;
+  --wr-chalk:     #E1E5EE;
+  --wr-silver:    #F4F5F7;
+  --wr-blanc:     #FCFCFD;
+  --navy:         var(--wr-cascades);
+  --navy-mid:     var(--wr-pacific);
+  --teal:         var(--wr-calypso);
+  --teal-bright:  var(--wr-seafoam);
+  --teal-light:   #cef4f6;
+  --bg:           var(--wr-silver);
+  --white:        var(--wr-blanc);
+  --border:       rgba(18, 60, 63, 0.14);
+  --text:         var(--wr-cascades);
+  --muted:        #4d7073;
+}
+
+@layer base {
+  * { box-sizing: border-box; }
+  html { font-family: 'Satoshi', 'Helvetica Neue', Arial, sans-serif; }
+  body {
+    font-family: 'Satoshi', 'Helvetica Neue', Arial, sans-serif;
+    background: var(--wr-silver);
+    color: var(--wr-cascades);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 {
+    font-family: 'Lora', Georgia, serif;
+    font-weight: 400;
+    color: var(--wr-cascades);
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-4 py-2 rounded-md text-sm font-medium transition-colors;
+    background: var(--wr-cascades);
+    color: white;
+  }
+  .btn-primary:hover { background: var(--wr-pacific); }
+
+  .btn-secondary {
+    @apply px-4 py-2 rounded-md text-sm transition-colors;
+    background: var(--wr-blanc);
+    color: var(--wr-cascades);
+    border: 1px solid var(--border);
+  }
+  .btn-secondary:hover { background: var(--wr-silver); }
+
+  .btn-teal {
+    @apply px-4 py-2 rounded-md text-sm font-medium transition-colors;
+    background: var(--wr-calypso);
+    color: white;
+  }
+  .btn-teal:hover { background: var(--wr-pacific); }
+
+  .btn-danger {
+    @apply px-4 py-2 rounded-md text-sm transition-colors;
+    background: #fef2f2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+  }
+
+  .card {
+    @apply rounded-xl p-5;
+    background: var(--wr-blanc);
+    border: 1px solid var(--border);
+  }
+
+  .input {
+    @apply w-full px-3 py-2 rounded-md text-sm outline-none transition-colors;
+    background: var(--wr-blanc);
+    border: 1px solid var(--border);
+    color: var(--wr-cascades);
+  }
+  .input:focus { border-color: var(--wr-calypso); box-shadow: 0 0 0 2px rgba(0,162,175,0.15); }
+  .input:disabled { background: var(--wr-silver); color: var(--muted); }
+
+  .label {
+    @apply block text-xs font-medium mb-1 uppercase tracking-wide;
+    color: var(--muted);
+  }
+
+  .badge-success  { @apply inline-flex items-center px-2 py-0.5 rounded text-xs font-medium; background:#dcfce7; color:#166534; }
+  .badge-warn     { @apply inline-flex items-center px-2 py-0.5 rounded text-xs font-medium; background:#fef3c7; color:#92400e; }
+  .badge-info     { @apply inline-flex items-center px-2 py-0.5 rounded text-xs font-medium; background:var(--teal-light); color:var(--wr-pacific); }
+  .badge-danger   { @apply inline-flex items-center px-2 py-0.5 rounded text-xs font-medium; background:#fee2e2; color:#991b1b; }
+  .badge-gray     { @apply inline-flex items-center px-2 py-0.5 rounded text-xs font-medium; background:var(--wr-chalk); color:var(--muted); }
+  .badge-teal     { @apply inline-flex items-center px-2 py-0.5 rounded text-xs font-medium; background:var(--teal-light); color:var(--wr-calypso); }
+
+  .section-title {
+    @apply block text-xs font-medium mb-3 pb-2 uppercase tracking-widest;
+    color: var(--muted);
+    border-bottom: 1px solid var(--border);
+  }
+}
